@@ -7,6 +7,7 @@ output: html_document
 ## Loading and preprocessing the data
 
 ```{r loading data}
+Sys.setlocale("LC_TIME", "English")
 activity <- read.csv("activity.csv")
 activity$date <-  as.Date(activity$date, format = "%Y-%m-%d")
 ```
@@ -114,7 +115,7 @@ library(ggplot2)
 ggplot(activity2_interval, aes(interval, meanSteps)) +
        geom_line() +
        labs(x = "5-min Interval", y = "Avg Number of Steps") +
-       facet_wrap( ~ weekdays, nrow = 2, ncol = 1) +
+       facet_wrap(~ weekdays, ncol = 1) +
        theme_bw()
 ```
 
